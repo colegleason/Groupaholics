@@ -1,0 +1,10 @@
+.textBlock {
+	float: left;
+	width: 300px;
+	text-size: 12px;
+	margin: 0 20px 0 20px;
+	}
+
+.textBlock h2 {
+	color: #CAF200;
+	}

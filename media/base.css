@@ -1,0 +1,66 @@
+/* Luke, I am your father */
+body {
+	color: white;
+	background: #515B5E;
+}
+
+#wrap {
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	width: 1024px;
+	height: 100%;
+    margin: auto;
+	padding:  0 0 100px 0;;
+	background: #2E3233;
+	}
+
+/* Header shit */
+header {
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	border-bottom: 2px solid white;
+	width: 100%;
+	height: 100px;
+	background: grey;
+	}
+
+#logo a {
+	float: left;
+	text-decoration: none;
+	color: #2E3233;
+	margin: 20px 0 0 20px;
+	}
+
+#subtitle {
+	float: left;
+	display: inline;
+	font-size: 12px;
+	margin: 0px 0 0 0px;
+	}
+
+#account {
+	float: right;
+	margin: 0 15px 0 0;
+	}
+
+nav {
+	position: absolute;
+	margin: 55px 0 0 0;
+	}
+
+nav li {
+	display: inline;
+	list-style: none;
+	}
+
+nav a {
+	text-decoration: none;
+	color: white;
+	}
+
+footer {
+	clear: both;
+	text-align: center;
+	width: 100%;
+	margin: 0 0 20px 0;
+	}

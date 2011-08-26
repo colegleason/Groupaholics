@@ -1,0 +1,18 @@
+{% block title %}{{ user.name }}'s Profile{% endblock %}
+{% block content %}
+<div id="profileBasic">
+  <img url="{{ user.photo }}">Profile Photo</img>
+  <h2>{{ user.name }}</h2>
+</div>
+<div id="profileSkills">
+  {% if user.skills %}
+  <ul>
+  {% for skill in user.skills %}
+  <li><a href="/skill/{{ skill }}">{{ skill }}</a></li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>This user has no skills listed!</p>
+{% endif %}
+</div>
+{% endblock %}
