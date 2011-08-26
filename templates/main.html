@@ -7,7 +7,15 @@
 <div class="textBlock">
   <h2>What is Groupaholics?</h2>
   <p>The purpose of Groupaholics is to connect people with specific skillsets to groups, organizations, and other people who are seeking those skillsets.  A group can be anything from a small project, to a sports team, to a large corporation.  All you have to do is create an account below!</p>
-<div id="createAccount"><!-- Account creation form --></div>
+<div id="createAccount">
+<!-- Account creation form -->
+<form action="/register" method="post">
+<input type="text" class="textField" name="email" value="Email" />
+<input type="text" class="textField" name="password" value="Password" />
+<input type="text" class="textField" name="confirmpassword" value="Confirm Password" />
+<input type="submit" class="button" value="Create account!" />
+</form>
+</div>
 </div>
 <div class="textBlock">
   <h2>For groups:</h2>
