@@ -1,7 +1,14 @@
+/* General crap like links */
+a {
+	text-decoration: none;
+	color: 	#92140C;
+}
+
 /* Luke, I am your father */
 body {
-	color: white;
-	background: #515B5E;
+	color: black;
+	background:  wite;
+	margin: -26px 0 0 0;
 }
 
 #wrap {
@@ -10,38 +17,83 @@ body {
 	width: 1024px;
 	height: 100%;
     margin: auto;
-	padding:  0 0 100px 0;;
-	background: #2E3233;
+	background: white;
 	}
 
+#topBar {
+	background: #92140C;
+	height: 90px;
+	width: 100%;
+	border-bottom: 4px solid #55000C;
+}
 /* Header shit */
 header {
-	border-top-left-radius: 15px;
-	border-top-right-radius: 15px;
-	border-bottom: 2px solid white;
-	width: 100%;
-	height: 100px;
-	background: grey;
+	color: white;
+	width: 1024px;
+	height: 90px;
+	margin: auto;
 	}
 
-#logo a {
+#logo  {
 	float: left;
-	text-decoration: none;
-	color: #2E3233;
-	margin: 20px 0 0 20px;
+	color: white;
+	margin: 33px 0 0 0;
+	height: 50px;
+	width: 200px;
 	}
+#logo a {
+	color: white;
+}
 
 #subtitle {
-	float: left;
-	display: inline;
 	font-size: 12px;
-	margin: 0px 0 0 0px;
+	font-weight: bold;
+	margin: 0 0 0 0;
 	}
 
 #account {
 	float: right;
-	margin: 0 15px 0 0;
+	background: #55000C;
+	width: 515px;
+	height: 30px;
+	padding: 3px 5px 0px 5px;
+	margin: 40px 0 0 0;
 	}
+
+#account form {
+	display: inline;
+	}
+
+#account input {
+	border: 1px solid #92140C;
+}
+
+#account .button  {
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	height: 27px;
+	width: 70px;
+	background: #55000C;
+	border: none;
+}
+
+#account .button:hover {
+	background:  #92140C;
+}
+
+#account a {
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	padding: 2px 7px 4px 7px;
+	background: #55000C;
+	border: none;
+}
+
+#account a:hover {
+	background:  #92140C;
+}
 
 nav {
 	position: absolute;
@@ -59,6 +111,7 @@ nav a {
 	}
 
 footer {
+	border-top: 2px gray solid;
 	clear: both;
 	text-align: center;
 	width: 100%;

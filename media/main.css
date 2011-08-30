@@ -1,10 +1,43 @@
-.textBlock {
+.column {
 	float: left;
-	width: 300px;
+	width: 320px;
 	text-size: 12px;
-	margin: 0 20px 0 20px;
 	}
 
-.textBlock h2 {
-	color: #CAF200;
+.column h2 {
+	font-size: 27px;
+	padding: 5px 10px 2px 15px;
+	color: white;
+	background:  #92140C;
+	border-bottom: 3px solid #55000C;
+	}
+
+#left {
+	margin: 0 10px 0 0;
+}
+
+#center {
+	margin: 0 20px 0 20px;
+}
+
+#right {
+	margin: 0 0 0 10px;
+}
+
+
+
+/* Account creation form */
+
+#createAccount input {
+	border: 2px gray solid;
+	width: 250px;
+	height: 30px;
+	margin: 5px 25px 5px 25px;
+}
+
+#createAccount .button {
+	background: #92140C;
+	color: white;
+	width: 255px;
+	border: 2px #55000C solid;
 	}

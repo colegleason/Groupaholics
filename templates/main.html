@@ -4,24 +4,29 @@
 {% block style %}<link rel="stylesheet" type="text/css" href="/media/main.css">{% endblock %}
 
 {% block content %}
-<div class="textBlock">
+<div  id="left" class="column">
   <h2>What is Groupaholics?</h2>
   <p>The purpose of Groupaholics is to connect people with specific skillsets to groups, organizations, and other people who are seeking those skillsets.  A group can be anything from a small project, to a sports team, to a large corporation.  All you have to do is create an account below!</p>
+</div>
+
+<div id="center" class="column">
 <div id="createAccount">
 <!-- Account creation form -->
+<h2>Create your account!</h2>
 <form action="/register" method="post">
-<input type="text" class="textField" name="email" value="Email" />
-<input type="text" class="textField" name="password" value="Password" />
-<input type="text" class="textField" name="confirmpassword" value="Confirm Password" />
-<input type="submit" class="button" value="Create account!" />
+<input type="text" class="textField" name="email" placeholder="Email" />
+<input type="text" class="textField" name="password" placeholder="Password" />
+<input type="text" class="textField" name="confirmpassword" placeholder="Confirm Password" /><br />
+<input type="submit" class="button" placeholder="Create account!" />
 </form>
 </div>
 </div>
-<div class="textBlock">
+
+<div id="right" class="column">
   <h2>For groups:</h2>
   <p>Groupaholics helps you to find people with skills in order to push your group forward, no matter what your goal is.  All you need to do is search for the skill you are looking for.  <a href="/search">Try it now!</a></p>
   <h2>For individuals:</h2>
   <p>Do you have a skill that you want more experience with?  We can help you find groups that cater to your specific skills or are looking for people seeking your interests.  <a href="/register"> Get started by making an account!</a></p>
-<!-- MAybe change that link to an arrow pointing to the left registration form? -->
+<!-- Maybe change that link to an arrow pointing to the left registration form? -->
 </div>
 {% endblock %}

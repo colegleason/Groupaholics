@@ -6,22 +6,22 @@
 	{% block style %}{% endblock %}
   </head> 
   <body>
-	<div id="wrap">
-	  <header> 
+	<div id="topBar">
+	  	  <header> 
 		<h1 id="logo"><a href="/">Groupaholics</a></h1> 
-		<p id="subtitle">connecting people and projects</p>
+		<span id="subtitle">| connecting people and projects</span>
 		<div id="account">
 		  <!-- some sort of login/logout menu, etc -->
 		  {% if user.is_authenticated %}
 		  <div id "accountMenu"></div>
 		  {% else %}
-		  <a href="/register">Register</a>
 		  <form action="/login" method="post">
 			<!--<div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='a4123d30db5bc0b24c93eb0aa0a4e27b' /></div>-->
-			<input type="text" name="email" class="textField" value="Email" onfocus="this.value = (this.value=='Email')? '' : this.value;"/>
-			<input type="text" name="password" class="extField" value="Password" onfocus="this.value = (this.value=='Password')? '' : this.value;" />
+			<input type="email" name="loginEmail" class="textField" placeholder="Email"/>
+			<input type="text" name="loginPassword" class="textField" placeholder="Password"/>
 			<input type="submit" class="button" value="Login" /> 
 		  </form> 
+		  		  <a href="/register">Register</a>
 		  {% endif %}
 		</div>
 		<nav id="mainNav">
@@ -30,7 +30,9 @@
 		  </ul>
 		</nav>
 	  </header>
-	  
+</div>
+	<div id="wrap">
+
 	  <div id="content"> 
 		{% block content %}{% endblock %}
 	  </div> 
