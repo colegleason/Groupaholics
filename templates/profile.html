@@ -1,10 +1,11 @@
 {% block title %}{{ user.name }}'s Profile{% endblock %}
 {% block content %}
-<div id="profileBasic">
-  <img url="{{ user.photo }}">Profile Photo</img>
-  <h2>{{ user.name }}</h2>
+<div id="basic">
+  <img url="{{ user.photo }}">{{ user.first_name }} {{ user.last_name }}'s Photo</img>
+  <h2>{{ user.first_name }} {{ user.last_name}}</h2>
+  <span id="headline">{{ user.headline }}</span>
 </div>
-<div id="profileSkills">
+<div id="skills">
   {% if user.skills %}
   <ul>
   {% for skill in user.skills %}
@@ -13,6 +14,22 @@
   </ul>
 {% else %}
   <p>This user has no skills listed!</p>
+{% endif %}
+</div>
+<div id="bio">
+{{ user.bio }}
+</div>
+<div id="projects">
+{% if user.projects %}
+<ul>
+{% for project in user.projects %}
+<li>
+<a href="/profile/{{ project.slug }}">{{ project.name }}</a><
+<p>{{ project.description }}</p>
+</li>
+{% endfor %}
+{% else %}
+<p>This user hasn't participated in any projects yet.</p>
 {% endif %}
 </div>
 {% endblock %}
