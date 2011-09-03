@@ -1,7 +1,9 @@
 <!-- This is the home page. -->
 {% extends "base.html" %}
 {% block title %}Main{% endblock %}
-{% block style %}<link rel="stylesheet" type="text/css" href="/media/main.css">{% endblock %}
+{% block style %}<link rel="stylesheet" type="text/css" href="/media/main.css">
+<script type="text/javascript" src="/media/registerValidate.js"></script>
+{% endblock %};
 
 {% block content %}
 <div  id="left" class="column">
@@ -13,10 +15,11 @@
 <div id="createAccount">
 <!-- Account creation form -->
 <h2>Create your account!</h2>
-<form action="/register" method="post">
-<input type="text" class="textField" name="email" placeholder="Email" />
-<input type="text" class="textField" name="password" placeholder="Password" />
-<input type="text" class="textField" name="confirmpassword" placeholder="Confirm Password" /><br />
+<form name="registerForm" action="/registerScript/" method="post" onsubmit="registerValidate(document);">{% csrf_token %}
+<input required="required" id= "id_email" type="email" class="textField" name="email" placeholder="Email" />
+<input required="required" id= "id_pass" type="password" class="textField" name="password" placeholder="Password" />
+<input required="required" id= "id_passCon" type="password" class="textField" name="confirmPassword" placeholder="Confirm Password" />
+<label id="passwordError" class="error"></label><br />
 <input type="submit" class="button" placeholder="Create account!" />
 </form>
 </div>
