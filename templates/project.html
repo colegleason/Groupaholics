@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}{{ project.title }}{% endblock %}
+{% block content %}
+
+<div id="basic">
+<img url="{{ project.photo }}" />
+<h2>{{ project.name }}</h2>
+</div>
+
+<div id="description">
+{{ project.description }}
+{% if projects.tags %}
+<ul>
+{% for tag in projects.tags %}
+<li><a href="/tag/{{ tag }}">{{ tag }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+</div>
+
+{% if project.news %)
+<div id="newsfeed">
+<ul>
+{% for post in news %}
+<li>
+<h4>{{ post.title }}</h4>
+<span class="postDate">{{ post.pub_date }}</span>
+{{ post.body }}
+</li>
+{% endfor %}
+</ul>
+</div>
+{% endif %}
+
+<div id="members">
+<ul>
+{% for member in project.members %}
+<li>
+<a href="/profile/{{ member }}">{{ member.name }}</a>
+{% if member in project.admins %}
+<span id="admin">Project Admin</span>
+{% endif %}
+</li>
+{% endfor %}
+</ul>
+</div>
