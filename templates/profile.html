@@ -2,8 +2,8 @@
 {% block title %}{{ user.name }}'s Profile{% endblock %}
 {% block content %}
 <div id="basic">
-  <img url="{{ user.photo }}">{{ user.first_name }} {{ user.last_name }}'s Photo</img>
-  <h2>{{ user.first_name }} {{ user.last_name}}</h2>
+  <img url="{{ user.photo }}">{{ user.get_full_name }}'s Photo</img>
+  <h2>{{ user.get_full_name }}</h2>
   <span id="headline">{{ user.headline }}</span>
 </div>
 <div id="skills">
