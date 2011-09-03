@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from django.shortcuts import render_to_response, HttpResponseRedirect
 from django.template import RequestContext
 from forms import *
@@ -10,21 +9,11 @@ def main(request):
 
 def register_script(request):
 	context = RequestContext(request, {'foo': 'bar'})
-	return HttpResponseRedirect('../registerSuccess.html')
-	
-def register(request):
-	context = {}
-	return render_to_response('register.html', context)
+	return HttpResponseRedirect('registerSuccess.html')
 	
 def register_success(request):
 	context = {}
 	return render_to_response('registerSuccess.html', context)
-=======
-from django.shortcuts import render_to_response, get_object_or_404
-
-def main(request):
-    context = {}
-    return render_to_response('main.html', context)
 
 def register(request):
     context = {}
@@ -54,4 +43,4 @@ def search(request):
     query = request.GET.get('q')
     context = {'query' : query}
     return render_to_response('search.html', context)
->>>>>>> da2588e79a86e89a81a3114bd7eb39024649b701
+

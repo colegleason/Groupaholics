@@ -68,7 +68,7 @@ STATIC_URL = '/media/'
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Additional locations of static files
-STATICFILES_DIRS = ('/Users/matt/documents/groupaholic/media/',
+STATICFILES_DIRS = ('/Users/cole/code/groupaholic/media/',
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -102,7 +102,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'groupaholic.urls'
 
-TEMPLATE_DIRS = ('/Users/matt/documents/groupaholic/templates'
+TEMPLATE_DIRS = ('/Users/cole/code/groupaholic/templates'
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.

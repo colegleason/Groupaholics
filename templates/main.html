@@ -16,6 +16,7 @@
 <!-- Account creation form -->
 <h2>Create your account!</h2>
 <form name="registerForm" action="/registerScript/" method="post" onsubmit="registerValidate(document);">{% csrf_token %}
+<input required="required" id= "id_user" type="username" class="textField" name="username" placeholder="Username" />
 <input required="required" id= "id_email" type="email" class="textField" name="email" placeholder="Email" />
 <input required="required" id= "id_pass" type="password" class="textField" name="password" placeholder="Password" />
 <input required="required" id= "id_passCon" type="password" class="textField" name="confirmPassword" placeholder="Confirm Password" />
