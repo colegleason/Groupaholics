@@ -5,6 +5,7 @@
 <div id="basic">
 <img url="{{ project.photo }}" />
 <h2>{{ project.name }}</h2>
+<span id="category">{{ project.category }}</span>
 </div>
 
 <div id="description">
@@ -44,3 +45,5 @@
 {% endfor %}
 </ul>
 </div>
+
+{% endblock %}
