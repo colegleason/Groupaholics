@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% black title %}Search{% endblock %}
+{% block content %}
+<div id="search">
+<form action="/search" method="get">
+<input type="text" id="searchbar" placeholder="search!"/>
+</form></div>
+
+{% if query %}
+{% if results %}
+Results for {{ query }}:
+<ul>
+{% for result in results %}
+<li>
+<img url="{{ result.url }}"></img>
+<span class="resultName">{{ result.name }}</span>
+</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>No results for "{{ query }}"</p>
+{% endif %}
+{% endif %}
+
+{% endblock %}
