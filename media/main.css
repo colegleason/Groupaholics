@@ -24,10 +24,6 @@
 	margin: 0 0 0 10px;
 }
 
-
-
-/* Account creation form */
-
 #createAccount input {
 	border: 2px gray solid;
 	width: 250px;
@@ -41,3 +37,7 @@
 	width: 255px;
 	border: 2px #55000C solid;
 	}
+
+#createAccount .error {
+	color: red;
+}
