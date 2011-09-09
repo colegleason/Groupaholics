@@ -1,9 +1,9 @@
-from django.shortcuts import render_to_response, HttpResponseRedirect
+from django.shortcuts import render_to_response, HttpResponseRedirect, get_object_or_404
 from django.template import RequestContext
 from forms import *
 from django.contrib.auth.forms import UserCreationForm
 from users.models import Profile, Project, Tag, NewsEntry, Tag, SkillTag
-from django.contrib.auth import auth_logout
+from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
@@ -17,8 +17,8 @@ def method_splitter(request, GET=None, POST=None):
 
 def main(request):
     user = request.user
-    if not user.is_anonymous:
-        context = {'user':user}
+    if user.is_authenticated:
+        context = {'user' : user}
         return render_to_response('dashboard.html', context)
     else:
         regForm = UserCreationForm()
@@ -27,7 +27,8 @@ def main(request):
 
 def register_get(request):
     regForm = UserCreationForm()
-    context = {'regForm': regForm}
+    success = False
+    context = {'regForm': regForm, 'success': success}
     return render_to_response('register.html', context)
 
 def register_post(request):
