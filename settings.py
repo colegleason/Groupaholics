@@ -1,6 +1,6 @@
 # Django settings for cs_comp project.
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -67,8 +67,12 @@ STATIC_URL = '/media/'
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
+
+# MATT & ZACH: Put your personal static and template directories in a file called local_settings.py
+
+
 # Additional locations of static files
-STATICFILES_DIRS = ('/Users/matt/documents/groupaholic/media/',
+STATICFILES_DIRS = ('',
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -102,10 +106,11 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'groupaholic.urls'
 
-TEMPLATE_DIRS = ('/Users/matt/documents/groupaholic/templates'
+TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    ''
 )
 
 INSTALLED_APPS = (
@@ -144,3 +149,13 @@ LOGGING = {
         },
     }
 }
+
+try:
+    from local_settings import *
+except ImportError, exp:
+    pass
+
+try:
+    INSTALLED_APPS += LOCAL_INSTALLED_APPS
+except:
+    pass

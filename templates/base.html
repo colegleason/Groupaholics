@@ -3,20 +3,25 @@
   <head> 
 	<title>Groupaholics - {% block title %}{% endblock %}</title> 
 	<link rel="stylesheet" type="text/css" href="/media/base.css"> 
-	{% block style %}{% endblock %}
+{% block style %}{% endblock %}
   </head> 
   <body>
 	<div id="topBar">
 	  	  <header> 
 		<h1 id="logo"><a href="/">Groupaholics</a></h1> 
 		<span id="subtitle">| connecting people and projects</span>
-		<div id="account">
+
+		  <div id="account">
 		  <!-- some sort of login/logout menu, etc -->
 		  {% if user.is_authenticated %}
-		  <div id "accountMenu"></div>
+		  <div id "accountMenu">
+			<a href="/logout">Logout</a>
+			
+		  </div>
 		  {% else %}
-		  <form action="/login" method="post">
-			<!--<div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='a4123d30db5bc0b24c93eb0aa0a4e27b' /></div>-->
+
+		  <form action="/login/" method="post">
+			{% csrf_token %}
 			<input type="email" name="loginEmail" class="textField" placeholder="Email"/>
 			<input type="text" name="loginPassword" class="textField" placeholder="Password"/>
 			<input type="submit" class="button" value="Login" /> 

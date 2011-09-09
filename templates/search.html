@@ -1,9 +1,14 @@
 {% extends "base.html" %}
-{% black title %}Search{% endblock %}
+{% block title %}Search{% endblock %}
 {% block content %}
 <div id="search">
-<form action="/search" method="get">
-<input type="text" id="searchbar" placeholder="search!"/>
+<form action="/search">
+<input type="text" name="query" placeholder="Enter search term and hit enter!" />
+<input name="serachSubmit" type="submit" value="search" />
+<br />
+<input type="checkbox" name="searchType" value="people" /> People
+<input type="checkbox" name="searchType" value="projects" /> Projects
+<input type="checkbox" name="searchType" value="skills" /> Skills
 </form></div>
 
 {% if query %}

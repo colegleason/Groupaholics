@@ -2,14 +2,14 @@
 {% block title %}{{ user.name }}'s Profile{% endblock %}
 {% block content %}
 <div id="basic">
-  <img url="{{ user.photo }}">{{ user.get_full_name }}'s Photo</img>
+  <img url="{{ profile.photo.url }}">{{ user.get_full_name }}'s Photo</img>
   <h2>{{ user.get_full_name }}</h2>
   <span id="headline">{{ user.headline }}</span>
 </div>
 <div id="skills">
-  {% if user.skills %}
+  {% if profile.skill_tags %}
   <ul>
-  {% for skill in user.skills %}
+  {% for skill in user.skill_tags %}
   <li><a href="/skill/{{ skill }}">{{ skill }}</a></li>
   {% endfor %}
   </ul>
@@ -18,12 +18,12 @@
 {% endif %}
 </div>
 <div id="bio">
-{{ user.bio }}
+{{ profile.bio }}
 </div>
 <div id="projects">
-{% if user.projects %}
+{% if profile.projects %}
 <ul>
-{% for project in user.projects %}
+{% for project in profile.projects %}
 <li>
 <a href="/profile/{{ project.slug }}">{{ project.name }}</a><
 <p>{{ project.description }}</p>
