@@ -18,7 +18,7 @@ def method_splitter(request, GET=None, POST=None):
 def main(request):
     user = request.user
     if user.is_authenticated:
-        context = {'user' : user}
+        context = RequestContext(request, {'user' : user})
         return render_to_response('dashboard.html', context)
     else:
         regForm = UserCreationForm()
@@ -28,14 +28,13 @@ def main(request):
 def register_get(request):
     regForm = UserCreationForm()
     success = False
-    context = {'regForm': regForm, 'success': success}
+    context = RequestContext(request, {'regForm': regForm, 'success': success})
     return render_to_response('register.html', context)
 
 def register_post(request):
-    regForm = UserCreationForm(request.POST)
+    regForm = ProfileForm(request.POST)
     if regForm.is_valid():
         new_user = regForm.save()
-        new_profile = Profile(user=new_user).save()
         success = True
     else:
         success = False
@@ -43,33 +42,33 @@ def register_post(request):
     return render_to_response('register.html', context)
 
 def profile(request, username):
-    user_obj = get_object_or_404(User, username=username)
-    profile = Profile.objects.get(user=user_obj)
-    context = {'profile': profile}
+    profile = get_object_or_404.get(username=username)
+    context = RequestContext(request, {'profile': profile})
     return render_to_response('profile.html', context)
 
 @login_required
 def profile_edit(request):
-    profile = Profile.objects.get(user=request.user)
+    profile = Profile.objects.get(username=username)
     editForm = ProfileForm(instance=profile)
-    context = {'editForm':editForm}
+    context = Requestcontext(request, {'editForm':editForm})
     return render_to_response('profile_edit.html', context)
 
 def project(request, pk_id):
-    #TODO news post code to get latest posts
-    context = {}
+
+    context = Requestcontext(request, {})
     return render_to_response('project.html', context)
 
 @login_required
 def project_edit(request, pk_id):
-    context = {}
+    context = RequestContext(request, {})
     return render_to_response('project_edit.html', context)
 
 def search(request):
     query = request.GET.get('q')
-    context = {'query' : query}
+    context = RequestContext(request, {'query' : query})
     return render_to_response('search.html', context)
 
 def logout(request):
     auth_logout(request)
-    return render_to_response('main.html', {})
+    context = RequestContext(request, {})
+    return render_to_response('main.html', context)

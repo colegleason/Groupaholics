@@ -54,7 +54,7 @@ header {
 #account {
 	float: right;
 	background: #55000C;
-	width: 515px;
+	width: 520px;
 	height: 30px;
 	padding: 3px 5px 0px 5px;
 	margin: 40px 0 0 0;
@@ -73,7 +73,7 @@ header {
 	font-weight: bold;
 	font-size: 18px;
 	height: 27px;
-	width: 70px;
+	width: 66px;
 	background: #55000C;
 	border: none;
 }
@@ -120,8 +120,4 @@ footer {
 
 .right {
 	float: right;
-}
-
-#accontMenu span {
-	margin: -30px 0 30px 10px;
 }

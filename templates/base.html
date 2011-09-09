@@ -9,15 +9,13 @@
 	<div id="topBar">
 	  	  <header> 
 		<h1 id="logo"><a href="/">Groupaholics</a></h1> 
-		<span id="subtitle">| connecting people and projects</span>
 		  <div id="account">
-		  <!-- some sort of login/logout menu, etc -->
 		  {% if user.is_authenticated %}
-		  <div id="accountMenu">
 			<img url="{{ user.profile.photo }}" width="25px" height="25px" />
 			<span id="username">{{ user.username }}</span>
-			<a class="right" href="/logout">Logout</a>
-			
+		  <div id="accountMenu">
+			</div>
+			<a class="right" href="/logout">Logout</a>		
 		  </div>
 		  {% else %}
 
@@ -27,7 +25,7 @@
 			<input type="password" name="password" class="textField" placeholder="Password"/>
 			<input type="submit" class="button" value="Login" /> 
 		  </form> 
-		  		  <a href="/register">Register</a>
+		  		  <a class="right" href="/register">Register</a>
 		  {% endif %}
 		</div>
 		<nav id="mainNav">

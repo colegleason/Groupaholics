@@ -6,7 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', views.main),
-    url(r'^register$', views.method_splitter, {'GET': views.register_get,'POST': views.register_post}),
+    url(r'^register/$', views.method_splitter, {'GET': views.register_get,'POST': views.register_post}),
     url(r'^profile/(?P<username>)\w+', views.profile),
     url(r'^account/edit$', views.profile_edit),
     url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}),
