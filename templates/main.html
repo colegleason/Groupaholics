@@ -17,7 +17,7 @@
 <!-- Account creation form -->
 <h2>Create your account!</h2>
 
- <form name="registerForm" action="/register" method="post" onsubmit="registerValidate(document);">
+ <form name="registerForm" action="/register/" method="post" onsubmit="registerValidate(document);">
 {% csrf_token %}
 {{ regForm.as_p }}
 <!--<input required="required" id= "id_user" type="username" class="textField" name="username" placeholder="Username" />
