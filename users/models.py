@@ -6,8 +6,8 @@ from django.utils import unittest
 
 #Profile.objects.all().filter(profiletag__title='python')[0].user.username
 class Profile(User):
-	photo = models.ImageField(upload_to='/profile_pics', blank=True, null=True)
-	bio = models.TextField(blank=True, null=True)
+	photo = models.ImageField(upload_to='/profile_pics', blank=True, default='/medi/no-photo-25.png')
+	bio = models.TextField(blank=True, null=True, default='')
 	skill_tags = models.ManyToManyField('SkillTag', blank=True, null=True)
 	projects = models.ManyToManyField('Project', blank=True, null=True)
 	
@@ -18,14 +18,13 @@ CATEGORY_CHOICES = (
 
 class Project(models.Model):
 	name = models.TextField(max_length=100)
-	description = models.TextField()
-	tags = models.ManyToManyField('Tag')
-	skill_tags = models.ManyToManyField('SkillTag')
+	description = models.TextField(blank=True)
+	tags = models.ManyToManyField('Tag', blank=True)
+	skill_tags = models.ManyToManyField('SkillTag', blank=True)
 	members = models.ManyToManyField('Profile', related_name='member_of')
 	admins = models.ManyToManyField('Profile', related_name='admin_of')
 	category = models.IntegerField(choices=CATEGORY_CHOICES)
 	parent_project = models.ForeignKey('Project', null=True, blank=True)
-	slug = models.SlugField(max_length=100)
 	
 class NewsEntry(models.Model):
 	pub_date = models.DateTimeField(auto_now_add=True)

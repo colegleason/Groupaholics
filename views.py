@@ -20,50 +20,71 @@ def main(request):
         context = RequestContext(request, {'user' : user})
         return render_to_response('dashboard.html', context)
     else:
-        regForm = RegForm()
+        regForm = ProfileCreationForm()
         context = RequestContext(request, {'regForm': regForm})
         return render_to_response('main.html', context)
 
 def register_get(request):
-    regForm = RegForm()
-    success = False
-    context = RequestContext(request, {'regForm': regForm, 'success': success})
+    regForm = ProfileCreationForm()
+    context = RequestContext(request, {'regForm': regForm})
     return render_to_response('register.html', context)
 
 def register_post(request):
-    regForm = RegForm(request.POST)
+    regForm = ProfileCreationForm(request.POST)
     if regForm.is_valid():
         new_user = regForm.save()
-        success = True
+        regSuccess = True
+        context = RequestContext(request, {'regSuccess' : regSuccess})
+        return render_to_response('success.html', context)  
     else:
-        success = False
-    context = RequestContext(request, {'regForm' : regForm, 'success' : success})
-    return render_to_response('register.html', context)
+        context = RequestContext(request, {'regForm' : regForm})
+        return render_to_response('register.html', context)
 
 def profile(request, username):
-    profile = get_object_or_404.get(username=username)
+    profile = get_object_or_404(Profile, username = username)
     context = RequestContext(request, {'profile': profile})
     return render_to_response('profile.html', context)
 
 @login_required
 def profile_edit(request):
-    profile = Profile.objects.get(username=username)
-    editForm = ProfileForm(instance=profile)
-    context = Requestcontext(request, {'editForm':editForm})
+    profile = Profile.objects.get(username=request.user.username)
+    editForm = ProfileEditForm(instance=profile)
+    context = RequestContext(request, {'editForm':editForm})
     return render_to_response('profile_edit.html', context)
 
 def project(request, pk_id):
-
     context = Requestcontext(request, {})
     return render_to_response('project.html', context)
 
 @login_required
-def project_edit(request, pk_id):
-    context = RequestContext(request, {})
+def project_edit_get(request, pk_id=None):
+    if pk_id:
+        project = Project.objects.get(pk_id=pk_id)
+        editForm = ProjectForm(instance=project)
+    else:
+        editForm = ProjectForm()
+    context = RequestContext(request, {'editForm': editForm})
     return render_to_response('project_edit.html', context)
+
+def project_edit_post(request, pk_id=''):
+    if pk_id:
+        project = Project.objects.get(pk_id=pk_id)
+        editForm = ProjectForm(request.POST, instance=project)
+        if editForm.is_valid:
+            editForm.save()
+            return redirect('/project/'+pk_id)
+    else:
+        editForm = ProjectForm(request.POST)
+        if editForm.is_valid:
+            pk_id = editForm.save().pk_id
+            return('/project/'+pk_id)
+    context = RequestContext=(request, {'editForm': editForm})
+    return render_to_response("project_edit.html", context)
+
 
 def search(request):
     query = request.GET.get('q')
+    
     context = RequestContext(request, {'query' : query})
     return render_to_response('search.html', context)
 

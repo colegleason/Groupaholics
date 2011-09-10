@@ -95,6 +95,59 @@ header {
 	background:  #92140C;
 }
 
+#accountMenu form {
+	vertical-align:top;
+	display: inline;
+	width: 250px;
+	height: 20px;
+	}
+
+#accountMenu form input {
+	vertical-align: top;
+	margin: 0 0 0 7px;
+	height: 18px;
+	width: 300px;
+}
+
+#accountMenu {
+	float: right;
+	background: #55000C;
+	width:700px;
+	height: 30px;
+	padding: 3px 5px 0px 5px;
+	margin: 40px 0 0 0;
+	}
+
+#accountMenu .button  {
+	display: inline;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	height: 25px;
+	width: 40px;
+	background: #55000C;
+	border: none;
+}
+
+#accountMenu .button:hover {
+	background:  #92140C;
+}
+
+#accountMenu a {
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	padding: 2px 7px 4px 7px;
+	background: #55000C;
+	border: none;
+}
+
+#accountMenu a:hover {
+	background:  #92140C;
+}
+
+
+
 nav {
 	position: absolute;
 	margin: 55px 0 0 0;

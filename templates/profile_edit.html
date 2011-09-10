@@ -3,8 +3,9 @@
 
 {% block content %}
 <div id="editForm">
-<form action="/account/edit">
+<form method="post" action="/account/edit/">
 {{ editForm }}
+<input type="submit" class="button" value="Save" />
 </form>
 </div>
 {% endblock %}
