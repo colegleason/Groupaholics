@@ -48,7 +48,12 @@ def profile(request, username):
 @login_required
 def profile_edit(request):
     profile = Profile.objects.get(username=request.user.username)
-    editForm = ProfileEditForm(instance=profile)
+    if request.method == 'POST':
+        editForm = ProfileEditForm(request.POST, instance=profile)
+        if editForm.is_valid():
+            editForm.save()
+    else:
+        editForm = ProfileEditForm(instance=profile)
     context = RequestContext(request, {'editForm':editForm})
     return render_to_response('profile_edit.html', context)
 

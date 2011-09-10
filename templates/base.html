@@ -22,31 +22,22 @@
 	  <header> 
 		<h1 id="logo"><a href="/">Groupaholics</a></h1>
 		  {% if user.is_authenticated %}
-
-		  <div id="accountMenu">			
-<ul id="accountMenuDown" class="dropdown dropdown-horizontal">
-	<li><img src="{% firstof user.profile.photo '/media/no-photo-25.png' %}" width="25px" height="25px" /><a href="/profile/{{user.username}}" id="username">{% firstof user.get_full_name user.username %}</a>
-		<ul>
-			<li><a href="/account/edit">Edit Profile</a></li>
-			<li><a href="/account/logout">Logout</a></li>
-		</ul>
-	</li>
-</ul>
-		  <form action="/search">
-			<input type="text" name="query" id="searchBar" placeholder="Enter search term and hit enter!" />
-			<input name="serachSubmit" class="button" type="submit" value="Go" />
-		  </form>		
-		  </div>
-		  {% else %}
-		  <div id="account">
-			<form action="/login/" method="post">
-			  {% csrf_token %}
-			  <input type="text" name="username" class="textField" placeholder="Username"/>
-			  <input type="password" name="password" class="textField" placeholder="Password"/>
-			  <input type="submit" class="button" value="Login" /> 
+		<div id="accountMenu">			
+		  <img src="{% firstof user.profile.photo '/media/no-photo-25.png' %}" width="25px" height="25px" />
+		  <a href="/profile/{{user.username}}" id="username">{% firstof user.get_full_name user.username %}</a>
+		  <a href="/account/edit">Edit Profile</a>
+		  <a href="/account/logout">Logout</a>		
+		</div>
+		{% else %}
+		<div id="account">
+		  <form action="/login/" method="post">
+			{% csrf_token %}
+			<input type="text" name="username" class="textField" placeholder="Username"/>
+			<input type="password" name="password" class="textField" placeholder="Password"/>
+			<input type="submit" class="button" value="Login" /> 
 			</form> 
-		  	<a class="right" href="/register">Register</a>
-			{% endif %}
+		  <a class="right" href="/register">Register</a>
+		  {% endif %}
 		  </div>
 		  <nav id="mainNav">
 			<ul>

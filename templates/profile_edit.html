@@ -3,7 +3,8 @@
 
 {% block content %}
 <div id="editForm">
-<form method="post" action="/account/edit/">
+<form method="POST" action="/account/edit/">
+{% csrf_token %}
 {{ editForm }}
 <input type="submit" class="button" value="Save" />
 </form>
